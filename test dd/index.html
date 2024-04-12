@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online test</title>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="header">
+        <h2 class="logo"><ion-icon name="logo-slack"></ion-icon> <strong>Online</strong><b>test</b> </h2>
+        <nav class="navbar">
+            <a href="#" style="--i:1">TRANG CHỦ</a>
+            <a href="#" style="--i:2">TẠO BÀI KIỂM TRA</a>
+            <a href="#" style="--i:3">THAM GIA KIỂM TRA</a>
+            <a href="#" style="--i:4">HƯỚNG DẪN</a>
+            <a href="#" style="--i:5">LIÊN HỆ</a>
+            <button class="btnlogin">ĐĂNG NHẬP</button>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="home-content">
+            <h1>NỀN TẢNG SÁNG TẠO CUỘC THI TRỰC TUYẾN </h1>
+            <p>Xây dựng cuộc thi chuyên nghiệp của riêng bạn trong 10 phút
+                hoặc dễ dàng tham gia thi trực tuyến với  <strong>Online</strong><b>test</b> </p>
+            <!-- lien ket va dang nhap -->
+            <div class="form-box login"> 
+                <a href="#" class="btnHome">THAM GIA</a>
+            </div>
+           
+        </div>
+        <div class="home-img">
+            <div class="bgr">
+                <img src="img/back.png" class="img1">
+                <img src="img/students.png" class="img2" />
+
+            </div>
+        </div>
+    </section>
+    <div class="wrapper">
+        <span class="icon-close"><ion-icon name="close"></ion-icon>
+        </span>
+        <div class="form-box login">
+            <h2>ĐĂNG NHẬP</h2>
+            <form action="#">
+                <div class="input-box">
+                    <spam class="icon"><ion-icon name="mail"></ion-icon></spam>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <spam class="icon"><ion-icon name="lock-closed"></ion-icon></spam>
+                    <input type="password" required>
+                    <label>Mật khẩu</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox"> Ghi nhớ đăng nhập</label>
+                    <a href="#">Quên mật khẩu </a>
+                </div>
+                <button type="submit" class="btn">ĐĂNG NHẬP</button>
+                <div class="login-register">
+                    <p>Không có tài khoảng? <a href="#" 
+                        class="register-link">Đăng kí</a></p>
+                </div>
+            </form>
+
+        </div>
+        <div class="form-box register">
+            <h2>ĐĂNG KÍ</h2>
+            <form action="#">
+                <div class="input-box">
+                    <spam class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </spam>
+                    <input type="text" required>
+                    <label>Tên người dùng</label>
+                </div>
+                <div class="input-box">
+                    <spam class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </spam>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <spam class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </spam>
+                    <input type="password" required>
+                    <label>Mật khẩu</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Tôi đồng ý với các điều khoảng</label>
+                </div>
+                <button type="submit" class="btn">ĐĂNG KÍ</button>
+                <div class="login-register">
+                    <p>Đã có tài khoảng? <a href="#" 
+                        class="login-link">Đăng nhập</a></p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- thu vien lay icon -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script> 
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
