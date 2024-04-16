@@ -332,6 +332,7 @@ strong {
     transform: none;
     opacity: 0;
     animation: bgr1 1s ease forwards;
+    /* , img 1s ease-in-out infinite */
     z-index: -2;
 }
 
@@ -409,4 +410,14 @@ strong {
         opacity: 1;
     }
 }
-
+/* @keyframes img{
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-20px);
+    }
+    100%{
+        transform: translateX(0)
+    }
+} */

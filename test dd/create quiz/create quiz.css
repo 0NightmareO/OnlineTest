@@ -86,11 +86,14 @@ strong {
     height: 800px;
     width: 130px;
     position: absolute;
-    background-color: aliceblue;
+    background-color: aliceblue !important;
     border-radius: 20px;
     /* overflow: hidden; */
+    unicode-bidi: isolate;
+    float: left;
     transition: .5s ease;
     transform:  translate(-130px);
+    /* z-index: 80; */
 }
 /* .slide.active-push {
     transform: scale();
