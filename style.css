@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* vh = viewport height */
+    background: rgb(220, 220, 220);
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: rgba(255, 251, 251, 0.3);
+    box-shadow: 0 10px 0 rgba(0, 0, 0, 0.051);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99; /* hop cao nhat */
+
+}
+strong {
+    color: rgb(243, 119, 119);
+
+}
+.logo{
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+    user-select: none;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+.logo a {
+    text-decoration: none;
+    color: #000000;
+}
+.navbar a {
+    display: inline-block;
+    position: relative;
+    font-size: 1.1em;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-family: "K2D", sans-serif;
+    font-weight: 500;
+    margin-left: 40px ;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+.navbar a::after {
+    content:' ' ;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width:   100%;
+    height:   3px;
+    background: rgb(243, 119, 119);
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scale(0);
+    transition: transform .5s;
+}
+.navbar a:hover::after {
+    transform-origin: left;
+    transform: scale(1);
+}
+.navbar a:hover{  
+    color: rgb(243, 119, 119); 
+}
+.navbar .btnlogin {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgb(243, 119, 119);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: rgb(243, 119, 119);
+    font-weight: 500;
+    margin-left: 40px;
+    transform: .5s;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s);
+
+}
+.navbar .btnlogin:hover {
+    background: rgb(243, 119, 119);
+    color: rgb(255, 255, 255);
+}
+.wrapper {
+    position: absolute ;
+    width:  400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    /* transition: transform .5s ease, height .2s ease; */
+}
+.wrapper.active-popup {
+    transform: scale(1);
+
+}
+.wrapper.active {
+    height: 520px;
+}
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: rgb(243, 119, 119);
+    font-size: 2em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px ;
+    cursor: pointer; /*con tro den vi tri se thay doi*/
+    z-index: 1;
+}
+.form-box h2 {
+    font-size: 2em;
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid black;
+    margin:  30px 0;
+}
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+
+}
+.input-box input {
+    width: 100%;
+    height:  100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    padding: 0 10% 0 5px; /* không bị tràn ra  ngoài khung nếu mk quá dài  */
+}
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: black;
+    line-height: 57px;
+}
+.remember-forgot {
+    font-size: .9em;
+    color: black;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.remember-forgot label input {
+    accent-color:  rgb(243, 119, 119);
+    margin-right: 3px;
+
+}
+
+.remember-forgot a {
+    color: #000000;
+    text-decoration: none;
+}
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+.btn{
+    width: 100%;
+    height: 45px;
+    background: rgb(243, 119, 119);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    font-weight: 500;
+
+}.login-register {
+    font-size: .9em;
+    color: #000000;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+.login-register p a:hover {
+    text-decoration: underline;
+}
+.home{
+    width:100% ;
+    height:100vh ;
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    padding:50px 8% 0 ;
+    overflow: hidden;
+}
+.home-content{
+    max-width: 630px;
+    align-items: right;
+}
+.home-content h1 {
+    font-size: 50px;
+    line-height: 1.2;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: 1s;
+}
+.home-content p {
+    font-family: "K2D", sans-serif;
+    font-size: 20px;
+    margin:15px 0 30px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1.6s;
+}
+.btnHome{
+    display:  inline-block;
+    padding: 10px 28px;
+    background: rgb(243, 119, 119);
+    border: 2px solid rgb(243, 119, 119);
+    border-radius: 50px;
+    box-shadow: 0 0 10px black;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transform: .5s;
+    opacity: 0;
+    animation: slideTop 1s ease forwards;
+    animation-delay: 2s;
+}
+.btnHome:hover{
+    background: transparent;
+    color: rgb(243, 119, 119);
+    box-shadow: none;
+}
+.home-img{
+    position: relative;
+    width: 450px;
+    height: 450px;
+
+}
+
+.home-img .bgr .img2 {
+    position: absolute;
+    top: -90px;
+    left: -150px;
+    max-width: 700px;
+    transform: none;
+    opacity: 0;
+    animation: human 1s ease forwards;
+    animation-delay: 2s;
+    z-index: -1;
+}
+.home-img .bgr .img1 {
+    position: absolute;
+    top: -60px;
+    left: -200px;
+    max-width: 800px;
+    transform: none;
+    opacity: 0;
+    animation: bgr1 1s ease forwards;
+    /* , img 1s ease-in-out infinite */
+    z-index: -2;
+}
+
+
+
+
+
+
+
+
+/* hieu ung chuyen dong */
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes human {
+    0% {
+        transform:translate(300, -300px) scale(0);
+        opacity: 0;
+
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+}
+@keyframes bgr1 {
+    0% {
+        right: -40%;
+        opacity: 0;
+
+    }
+    100% {
+        right: -25%;
+        opacity: 1;
+    }
+}
+/* @keyframes img{
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(-20px);
+    }
+    100%{
+        transform: translateX(0)
+    }
+} */
